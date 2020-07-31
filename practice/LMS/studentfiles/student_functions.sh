@@ -7,6 +7,7 @@ function check_available(){
 	read book_name
 	available=`grep -i $book_name libsheet.txt | awk '{print $5}'`
 
+	// (MS): check this condition. you should checkout if it is available.
 	if [ $available = "yes" ]
 	then
 		echo "The book you requested is available"
@@ -35,6 +36,8 @@ function check_in(){
 		echo "Sorry, Are you trying to checkout"
 	elif [ $avaiable = "no" ]
 	then
+		// (MS): Can you get this date yourself rather than asking the user.
+		// https://www.tutorialkart.com/bash-shell-scripting/bash-date-format-options-examples/
 		echo "please enter today's date in dd-mm-yyyy format:"
 		declare -x today_date
 		read today_date
